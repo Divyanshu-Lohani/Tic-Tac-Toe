@@ -88,9 +88,11 @@ const checkWinner = () => {
         if (postion1 == postion2 && postion2 == postion3){
             disabledBox();
             showWinner(postion1);
+            return true; 
         }
     }
   }
+  return false;
 };
 
 
