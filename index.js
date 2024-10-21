@@ -19,6 +19,14 @@ let winnigPattern = [
   [0, 4, 8],
 ];
 
+const resetGame = () => {
+  turnO = true;
+  count = 0;
+  enableBox();
+  clearBoxes();
+  msgContainer.classList.add("hide");
+};
+
 const clearBoxes = () => {
     boxes.forEach((box) => {
     box.innerHTML = ""
@@ -58,7 +66,7 @@ boxes.forEach((box) => {
     count++
     let isWinner = checkWinner();
     
-    if (count == 9 && !isWinner){
+    if (count === 9 && !isWinner){
         gameDraw();
     }
 
@@ -86,18 +94,8 @@ const checkWinner = () => {
 };
 
 
-resetBtn.addEventListener("click", () => {
-    msgContainer.classList.add("hide")
-    turnO = true;
-    enableBox();
-    clearBoxes();
-});
+resetBtn.addEventListener("click", resetGame);
 
 
-newGame.addEventListener("click", () => {
-    msgContainer.classList.add("hide")
-    turnO = true;
-    enableBox();
-    clearBoxes();
-});
+newGame.addEventListener("click", resetGame);
 
